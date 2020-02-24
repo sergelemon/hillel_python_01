@@ -3,8 +3,8 @@ def catalog_finder(url_list):
     Дописать функцию, которая принимает список URL, а возвращает
     список только тех URL, в которых есть /catalog/
     """
-    # your code here
-    result_list = None
+    result_list = [x for x in url_list if x.find('/catalog/') >= 0]
+
     return result_list
 
 
@@ -13,8 +13,11 @@ def idiotic_str(input_str):
     Вернуть полученную строку, сделав каждую вторую букву заглавной:
     Пример: тестовая строка -> тЕсТоВаЯ СтРоКа
     """
-    # your code here
-    idiotic_str = None
+    idiotic_str = ''
+
+    for i in input_str:
+        idiotic_str += i.capitalize() if len(idiotic_str) % 2 else i
+
     return idiotic_str
 
 
@@ -23,8 +26,11 @@ def get_str_center(input_str):
     Дописать функцию, которая вернет Х символов из середины строки
     (2 для четного кол-ва символов, 3 - для нечетного).
     """
-    # your code here
-    output_str = None
+    is_odd = len(input_str) % 2
+    half = int(len(input_str) / 2)
+
+    output_str = input_str[half - 1: half + int(is_odd) + 1]
+
     return output_str
 
 
