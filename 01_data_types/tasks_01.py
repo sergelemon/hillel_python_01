@@ -41,8 +41,13 @@ def count_symbols(input_str):
     встречается в строке, разложить буквы в словарь парами
     {буква:количество упоминаний в строке}
     """
-    # your code here
-    output_dict = None
+    output_dict = dict()
+
+    for x in input_str:
+        if output_dict.get(x) == None:
+            output_dict[x] = 0
+        output_dict[x] += 1
+
     return output_dict
 
 
@@ -51,8 +56,9 @@ def mix_strings(str1, str2):
     Дописать функцию, которая будет принимать 2 строки и вставлять вторую
     в середину первой
     """
-    # your code here
-    result_str = None
+    point = int(len(str1) / 2)
+    result_str = str1[:point] + str2 + str1[point:]
+
     return result_str
 
 
@@ -63,8 +69,17 @@ def avg_score(score_list):
     Пример: ["Mike|83, 90, 34, 54", "Jane|45, 46, 53, 23"] ->
     ["Mike|65", "Jane|42"]
     """
-    # your code here
-    avg_scores = None
+    avg_scores = dict()
+
+    for x in score_list:
+        sum = 0
+        key_value = x.split('|')
+        name, str_values = key_value[0], key_value[1]
+        values = str_values.split(',')
+        for x in values:
+            sum += int(x)
+        avg_scores[name] = round(sum / len(values))
+
     return avg_scores
 
 
