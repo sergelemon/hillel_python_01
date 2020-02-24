@@ -26,10 +26,11 @@ def get_str_center(input_str):
     Дописать функцию, которая вернет Х символов из середины строки
     (2 для четного кол-ва символов, 3 - для нечетного).
     """
-    is_odd = len(input_str) % 2
-    half = int(len(input_str) / 2)
+    if len(input_str) < 4:
+        return input_str
 
-    output_str = input_str[half - 1: half + int(is_odd) + 1]
+    point = int(len(input_str) / 2)
+    output_str = input_str[point - 1: 1 - point]
 
     return output_str
 
