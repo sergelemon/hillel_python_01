@@ -44,7 +44,7 @@ def count_symbols(input_str):
     output_dict = dict()
 
     for x in input_str:
-        if output_dict.get(x) == None:
+        if not output_dict.get(x):
             output_dict[x] = 0
         output_dict[x] += 1
 
@@ -57,7 +57,7 @@ def mix_strings(str1, str2):
     в середину первой
     """
     point = int(len(str1) / 2)
-    result_str = str1[:point] + str2 + str1[point:]
+    result_str = ''.join([str1[:point], str2, str1[point:]])
 
     return result_str
 
@@ -72,13 +72,16 @@ def avg_score(score_list):
     avg_scores = dict()
 
     for x in score_list:
-        sum = 0
+
         key_value = x.split('|')
         name, str_values = key_value[0], key_value[1]
         values = str_values.split(',')
+
+        sum = 0
         for x in values:
             sum += int(x)
-        avg_scores[name] = round(sum / len(values))
+
+        avg_scores[name] = 0 if not sum else round(sum / len(values))
 
     return avg_scores
 
@@ -93,14 +96,16 @@ def encrypt_str(input_str):
     encrypted_str, current_letter, letter_count = '', '', 0
 
     for x in input_str:
+
         if x == current_letter:
             letter_count += 1
             continue
+
         encrypted_str += current_letter
         if letter_count > 1:
             encrypted_str += str(letter_count)
-        current_letter = x
-        letter_count = 1
+
+        current_letter, letter_count = x, 1
 
     encrypted_str += current_letter
     if letter_count > 1:
@@ -135,8 +140,30 @@ def replace_vowels(input_str):
     """
     Заменить в произвольной строке согласные буквы на гласные.
     """
-    # your code here
-    result_str = None
+    import random
+
+    result_str = ''
+    vowels = ('a', 'e', 'i', 'o', 'u', 'y', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я')
+
+    for x in input_str:
+
+        letter = x
+        upper_flag = x.isupper()
+        if upper_flag:
+            letter = letter.lower()
+
+        if letter in vowels:
+            result_str += x
+            continue
+
+        index = random.randint(0, len(vowels) - 1)
+        letter = vowels[index]
+
+        if upper_flag:
+            letter = letter.capitalize()
+
+        result_str += letter
+
     return result_str
 
 
@@ -146,8 +173,12 @@ def filter_unique_int(input_list):
     [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]
     убрать из него повторяющиеся элементы
     """
-    # your code here
-    unique_int_list = None
+
+    unique_int_list = list()
+    for x in input_list:
+        if not x in unique_int_list:
+            unique_int_list.append(x)
+
     return unique_int_list
 
 
@@ -157,9 +188,11 @@ def three_biggest_int(input_list):
     [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]
     вывести 3 наибольших числа из исходного массива
     """
-    # your code here
-    biggest_ints = None
-    return biggest_ints
+
+    sorted_list = filter_unique_int(input_list)
+    sorted_list.sort(reverse=True)
+
+    return sorted_list[0:3]
 
 
 def lowest_int_index(input_list):
@@ -168,9 +201,8 @@ def lowest_int_index(input_list):
     [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]
     вывести индекс минимального элемента массива
     """
-    # your code here
-    lowest_int_index = None
-    return lowest_int_index
+
+    return input_list.index(min(input_list))
 
 
 def reversed_list(input_list):
@@ -179,16 +211,21 @@ def reversed_list(input_list):
     [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]
     вывести исходный массив в обратном порядке
     """
-    # your code here
-    reversed = None
-    return reversed
+
+    return input_list[::-1]
 
 
 def find_common_keys(dict1, dict2):
     """
     Найти общие ключи в двух словарях, вернуть список их названий
     """
-    common_keys = None
+
+    keys1 = set(dict1.keys())
+    keys2 = set(dict2.keys())
+
+    common_keys = list(keys1 & keys2)
+    common_keys.sort()
+
     return common_keys
 
 
