@@ -90,8 +90,22 @@ def encrypt_str(input_str):
     Пример 1: "www" -> "w3"
     Пример 2: "abbbccdeffgggg" -> "ab3c2def2g4"
     """
-    # your code here
-    encrypted_str = None
+    encrypted_str, current_letter, letter_count = '', '', 0
+
+    for x in input_str:
+        if x == current_letter:
+            letter_count += 1
+            continue
+        encrypted_str += current_letter
+        if letter_count > 1:
+            encrypted_str += str(letter_count)
+        current_letter = x
+        letter_count = 1
+
+    encrypted_str += current_letter
+    if letter_count > 1:
+        encrypted_str += str(letter_count)
+
     return encrypted_str
 
 
@@ -101,8 +115,11 @@ def square_dict(input_dict):
     keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     ожидаемый результат: {1: 1, 2: 4, 3: 9 …}
     """
-    # your code here
-    squared_dict = None
+    squared_dict = dict()
+
+    for x in input_dict:
+        squared_dict[x] = x ** 2
+
     return squared_dict
 
 
