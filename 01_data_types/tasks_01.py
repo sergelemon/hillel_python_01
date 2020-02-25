@@ -128,9 +128,7 @@ def even_int_generator():
     Сгенерировать список из диапазона чисел от 0 до 100 и записать
     в результирующий список только четные числа.
     """
-    # your code here
-    even_int_list = None
-    return even_int_list
+    return [x for x in range(100) if not x % 2]
 
 
 def replace_vowels(input_str):
