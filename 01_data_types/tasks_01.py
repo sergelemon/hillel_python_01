@@ -133,31 +133,45 @@ def even_int_generator():
     Сгенерировать список из диапазона чисел от 0 до 100 и записать
     в результирующий список только четные числа.
     """
-    return [x for x in range(100) if not x % 2]
+
+    """
+    Список из диапазона чисел содержит изначально 100 позиций 
+    """
+    import random
+
+    all_numbers = [random.randint(0,100) for i in range(100)]
+    even_int = [x for x in all_numbers if not x % 2]
+
+    return even_int
 
 
 def replace_vowels(input_str):
     """
     Заменить в произвольной строке согласные буквы на гласные.
     """
+
+    """
+    Замена выполняется случайным образом среди букв двух алфавитов.
+    Сохраняется высота строчных/прописных букв.
+    """
+
     import random
 
     result_str = ''
-    vowels = ('a', 'e', 'i', 'o', 'u', 'y', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я')
+    vowels = 'aeiouyаеёиоуыэюя'
+    consonants = 'bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщъь'
 
     for x in input_str:
 
         letter = x
         upper_flag = x.isupper()
+
         if upper_flag:
             letter = letter.lower()
 
-        if letter in vowels:
-            result_str += x
-            continue
-
-        index = random.randint(0, len(vowels) - 1)
-        letter = vowels[index]
+        if consonants.find(letter) >= 0 and vowels.find(letter) < 0:
+            index = random.randint(0, len(vowels) - 1)
+            letter = vowels[index]
 
         if upper_flag:
             letter = letter.capitalize()
@@ -174,6 +188,11 @@ def filter_unique_int(input_list):
     убрать из него повторяющиеся элементы
     """
 
+    # Если порядок элементов в новом массиве неважен, можно сделать одной строкой:
+    # return list(set(input_list))
+
+    # Здесь мы сохраняем порядок следования элементов
+
     unique_int_list = list()
     for x in input_list:
         if not x in unique_int_list:
@@ -189,6 +208,8 @@ def three_biggest_int(input_list):
     вывести 3 наибольших числа из исходного массива
     """
 
+    #Здесь используем функцию, спроектированную для решения предыдущей задачи
+
     sorted_list = filter_unique_int(input_list)
     sorted_list.sort(reverse=True)
 
@@ -201,6 +222,8 @@ def lowest_int_index(input_list):
     [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]
     вывести индекс минимального элемента массива
     """
+
+    #Если несколько одинаковых минимальных чисел, будет выведено первое из них
 
     return input_list.index(min(input_list))
 
@@ -224,6 +247,8 @@ def find_common_keys(dict1, dict2):
     keys2 = set(dict2.keys())
 
     common_keys = list(keys1 & keys2)
+
+    #Сортируем для красоты
     common_keys.sort()
 
     return common_keys
