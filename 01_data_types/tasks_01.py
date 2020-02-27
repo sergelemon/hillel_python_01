@@ -268,6 +268,19 @@ def sort_by_age(student_list):
                         {'name': 'Dmitriy', 'age': 21}]
         }
     """
-    # your code here
-    sorted_dict = None
+
+    sorted_list = sorted(student_list, key=lambda i: i['age'])
+    sorted_dict = dict()
+
+    for x in sorted_list:
+
+        small_dict = dict(x)
+        del small_dict['city']
+
+        city = x['city']
+        if not sorted_dict.get(city):
+            sorted_dict[city] = list()
+
+        sorted_dict[city].append(small_dict)
+
     return sorted_dict
