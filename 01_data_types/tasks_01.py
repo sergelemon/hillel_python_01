@@ -74,14 +74,11 @@ def avg_score(score_list):
     for x in score_list:
 
         key_value = x.split('|')
-        name, str_values = key_value[0], key_value[1]
-        values = str_values.split(',')
+        name = key_value[0]
+        values = key_value[1].split(',')
 
-        sum = 0
-        for x in values:
-            sum += int(x)
-
-        avg_scores[name] = 0 if not sum else round(sum / len(values))
+        scores = [int(score) for score in values]
+        avg_scores[name] = sum(scores) // len(scores)
  
     return avg_scores
 
