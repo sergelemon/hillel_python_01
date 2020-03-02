@@ -16,7 +16,7 @@ def idiotic_str(input_str):
     idiotic_str = ''
 
     for i in input_str:
-        idiotic_str += i.capitalize() if len(idiotic_str) % 2 else i
+        idiotic_str += i.upper() if len(idiotic_str) % 2 else i
 
     return idiotic_str
 
@@ -29,7 +29,7 @@ def get_str_center(input_str):
     if len(input_str) < 4:
         return input_str
 
-    point = int(len(input_str) / 2)
+    point = len(input_str) // 2
     output_str = input_str[point - 1: 1 - point]
 
     return output_str
@@ -82,7 +82,7 @@ def avg_score(score_list):
             sum += int(x)
 
         avg_scores[name] = 0 if not sum else round(sum / len(values))
-
+ 
     return avg_scores
 
 
@@ -120,12 +120,8 @@ def square_dict(input_dict):
     keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     ожидаемый результат: {1: 1, 2: 4, 3: 9 …}
     """
-    squared_dict = dict()
-
-    for x in input_dict:
-        squared_dict[x] = x ** 2
-
-    return squared_dict
+    
+    return {number:number*number for number in input_dict}
 
 
 def even_int_generator():
