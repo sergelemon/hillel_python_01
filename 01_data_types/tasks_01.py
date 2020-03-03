@@ -150,8 +150,7 @@ def replace_vowels(input_str):
 
     result_str = ''
     vowels = 'aeiouyаеёиоуыэюя'
-    consonants = 'bcdfghjklmnpqrstvwxzбвгджзклмнпрстфхцчшщъь'
-
+    
     for x in input_str:
 
         letter = x
@@ -160,9 +159,8 @@ def replace_vowels(input_str):
         if upper_flag:
             letter = letter.lower()
 
-        if consonants.find(letter) >= 0 and vowels.find(letter) < 0:
-            index = random.randint(0, len(vowels) - 1)
-            letter = vowels[index]
+        if vowels.find(letter) < 0:
+            letter = random.choice(vowels)
 
         if upper_flag:
             letter = letter.capitalize()
@@ -227,6 +225,7 @@ def reversed_list(input_list):
     """
 
     return input_list[::-1]
+    #list(reversed(input_list))
 
 
 def find_common_keys(dict1, dict2):
