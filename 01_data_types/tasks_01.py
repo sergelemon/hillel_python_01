@@ -69,16 +69,14 @@ def avg_score(score_list):
     Пример: ["Mike|83, 90, 34, 54", "Jane|45, 46, 53, 23"] ->
     ["Mike|65", "Jane|42"]
     """
-    avg_scores = dict()
+    avg_scores = list()
 
     for x in score_list:
 
-        key_value = x.split('|')
-        name = key_value[0]
-        values = key_value[1].split(',')
-
+        name, values = x.split('|')
+        scores_list = values.split(',')
         scores = [int(score) for score in values]
-        avg_scores[name] = sum(scores) // len(scores)
+        avg_scores.append(f'{name}|{sum(scores) // len(scores}')
  
     return avg_scores
 
