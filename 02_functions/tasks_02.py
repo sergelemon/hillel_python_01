@@ -27,18 +27,15 @@ def validate_password(password):
 
 
 def symbols_correct(password):
-  correct = 'abcdefghijklmnopqrstuvwxyz0123456789'
-  return len([x for x in password if correct.find(x.lower()) < 0]) == 0
+  return len(set(password.lower()) - set('abcdefghijklmnopqrstuvwxyz0123456789')) == 0
 
 
 def even_letters(password):
-  correct = 'abcdefghijklmnopqrstuvwxyz'
-  return len([x for x in password if correct.find(x.lower()) >= 0]) % 2 == 0
+  return len([x for x in password if x.isalpha()]) % 2 == 0
 
 
 def odd_numbers(password):
-  correct = '0123456789'
-  return len([x for x in password if correct.find(x) >= 0]) % 2 != 0
+  return len([x for x in password if x.isdigit()]) % 2 != 0
 
 
 def int_converter(input_int):
@@ -48,14 +45,10 @@ def int_converter(input_int):
   # При касте нужно избавляться от первых символов (0o31 -> 31, 0xe6 -> e6).
   # Возвращает строку, отформатированную с помощью функции print_table.
 
+  row1 = ['Decimal', 'Octal', 'Binary', 'Hexadecimal']
+  row2 = [input_int, oct(input_int)[2:], bin(input_int)[2:], hex(input_int)[2:]]
 
-  # headers = ['decimal', 'octal', 'binary', 'hexadecimal']
-  # answers = [input_int, oct(input_int), hex(input_int), bin(input_int)]
-  # print_table(headers, headers)
-
-
-
-  pass
+  return print_table(4, 2, *[row1, row2])
 
 
 def print_table(cols=1, rows=1, *data):
@@ -74,21 +67,21 @@ def print_table(cols=1, rows=1, *data):
   # Обратить внимание на размеры ячеек - 12 символов на текст + по 1 вокруг
   # слева и справа от разделителя |.
 
-  выводим полосу
-  выводим ряд 1
-  выводим ряд 2
-  выводим полосу
+  row_list = list()
 
+  for row in range(rows):
 
+    col_list = list()
+    for col in range(cols):
+      if len(data) > row and len(data[row]) > col:
+        col_list.append(f'{data[row][col]}')
+      else:
+        col_list.append('')
 
+    s = ' | '.join([x.ljust(12) for x in col_list])
+    row_list.append(f'| {s} |\n')
 
+  line = ''.join([' ', '-' * (15 * cols - 1), '\n'])
+  answer = ''.join([line, ''.join(row_list), line])
 
-    pass
-
-
-input_int = 255
-row1 = ['Decimal', 'Octal', 'Binary', 'Hexadecimal']
-row2 = [input_int, oct(input_int), hex(input_int), bin(input_int)]
-
-print_table(4, 2, [row1, row2])
-
+  return answer
