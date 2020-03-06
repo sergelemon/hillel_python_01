@@ -70,14 +70,7 @@ def print_table(cols=1, rows=1, *data):
   row_list = list()
 
   for row in range(rows):
-
-    col_list = list()
-    for col in range(cols):
-      if len(data) > row and len(data[row]) > col:
-        col_list.append(f'{data[row][col]}')
-      else:
-        col_list.append('')
-
+    col_list = [f'{data[row][col]}' if (len(data) > row and len(data[row]) > col) else '' for col in range(cols)]
     s = ' | '.join([x.ljust(12) for x in col_list])
     row_list.append(f'| {s} |\n')
 
