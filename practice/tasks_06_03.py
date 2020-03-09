@@ -170,7 +170,7 @@ def save_to_db(data: tuple) -> bool:
 
 test = ({"first_name": 'Guido',
          "last_name": 'Van Rossum',
-         "birth": date(1906,1,31),
+         "birth": date(1956,1,31),
          "email": "test@test.com"},
         {"first_name": "Sergey",
            "last_name": "Limanchuk",
