@@ -71,98 +71,60 @@ def validate_input(data: tuple):
     error_dict = {'KeyError': [], 'ValueError':[]}
 
     for profile in data:
-        result *= check_first_name(profile, error_dict)
-        result *= check_last_name(profile, error_dict)
-        result *= check_birth(profile, error_dict)
-        result *= check_email(profile, error_dict)
+        result *= check_field('first_name', profile, error_dict)
+        result *= check_field('last_name', profile, error_dict)
+        result *= check_field('birth', profile, error_dict)
+        result *= check_field('email', profile, error_dict)
 
     return result, error_dict
 
-def check_first_name(profile, error_dict):
 
-    result = True
-    check_key = 'first_name'
-    value = profile.get(check_key)
+def check_field(key, profile, error_dict):
 
-    if value == None:
-        result = log_error(error_dict, 'KeyError', check_key, profile)
-    elif not isinstance(value, str) or not len(value) or len(value) >= 48:
-        result = log_error(error_dict, 'ValueError', check_key, profile)
-
-    return result
-
-
-def check_last_name(profile, error_dict):
-
-    result = True
-    check_key = 'last_name'
-    value = profile.get(check_key)
+    result = False
+    value = profile.get(key)
 
     if value == None:
-        result = log_error(error_dict, 'KeyError', check_key, profile)
-    elif not isinstance(value, str) or not len(value) or len(value) >= 64:
-        result = log_error(error_dict, 'ValueError', check_key, profile)
-
-    return result
-
-
-def check_birth(profile, error_dict):
-
-    result = True
-    check_key = 'birth'
-    value = profile.get(check_key)
-
-    if value == None:
-        result = log_error(error_dict, 'KeyError', check_key, profile)
-    elif not isinstance(value, date) or value > date.today() or date.replace(value, value.year + 100) < date.today():
-        result = log_error(error_dict, 'ValueError', check_key, profile)
-
-    return result
-
-
-def check_email(profile, error_dict):
-
-    check_key = 'email'
-    value = profile.get(check_key)
-
-    if value == None:
-        return log_error(error_dict, 'KeyError', check_key, profile)
+        error_dict['KeyError'].append((key, profile))
+        return result
 
     while True:
-
-        email_error = True
-        if not isinstance(value, str) or not len(value):
+        if key == 'first_name':
+            if isinstance(value, str) and len(value) and len(value) < 48:
+                result = True
+            break
+        elif key == 'last_name':
+            if isinstance(value, str) and len(value) and len(value) < 64:
+                result = True
+            break
+        elif key == 'birth':
+            if isinstance(value, date) and value <= date.today() and date.replace(value, value.year + 100) >= date.today():
+                result = True
+            break
+        elif key == 'email':
+            if not isinstance(value, str) or not len(value):
+                break
+            email_parts = value.split('@')
+            if not len(email_parts) == 2:
+                break
+            login, domain = email_parts
+            last_point = domain.rfind('.')
+            if last_point == -1:
+                break
+            elif not (1 < len(domain) - last_point - 1 < 4):
+                break
+            mask = set('abcdefghijklmnopqrstuvwxyz0123456789-_.')
+            if len(set(login.lower()) - mask) > 0:
+                break
+            elif len(set(domain.lower()) - mask) > 0:
+                break
+            result = True
             break
 
-        email_parts = value.split('@')
-        if not len(email_parts) == 2:
-            break
+    if not result:
+        error_dict['ValueError'].append((key, profile))
 
-        login, domain = email_parts
-        last_point = domain.rfind('.')
-        if last_point == -1:
-            break
-        elif not (1 < len(domain) - last_point - 1 < 4):
-            break
-
-        mask = set('abcdefghijklmnopqrstuvwxyz0123456789-_.')
-        if len(set(login.lower()) - mask) > 0:
-            break
-        elif len(set(domain.lower()) - mask) > 0:
-            break
-
-        email_error = False
-        break
-
-    if email_error:
-        return log_error(error_dict, 'ValueError', check_key, profile)
-    else:
-        return True
-
-
-def log_error(error_dict, key1, key2, profile):
-    error_dict[key1].append((key2, profile))
-    return False
+    return result
 
 
 def handle_error(error_dict) -> None:
@@ -173,8 +135,11 @@ def handle_error(error_dict) -> None:
     {"first_name": {"first_name": 42, "second_name": "Van Rossum"}}
     {"second_name": {"first_name": "Guido", "second_name": 42}}
     """
-    print(error_dict)
-
+    for key in error_dict:
+        if len(error_dict[key]):
+            print(f'{key} found in:')
+            for x in error_dict[key]:
+                print(x)
     pass
 
 
@@ -189,25 +154,28 @@ def save_to_db(data: tuple) -> bool:
 
     if not result:
         handle_error(error_dict)
-    else:
-        database.extend(list(data))
+        return result
+
+    # простейший способ - добавляем в базу данных без контроля уникальности записей.
+    # код в одну строку:
+    # database.extend(list(data))
+
+    # но я использую способ с проверкой:
+    for profile in data:
+        if profile not in database:
+            database.append(profile)
 
     return result
 
 
-def select_from_db(field, value):
-    """
-    Функция возвращает кортеж словарей, где переданное значение встречается в
-    переданном ключе.
-    """
-    pass
-
-
-
-
-
-test = ({"first_name": "Guido", "last_name": "Van Rossum", "birth": date(1956,1,31), "email": "test@test.com"},
-          {"first_name": "Sergey", "last_name": "Limanchuk", "birth": date(1976,1,2), "email": "sergelemon@gmail.com"})
+test = ({"first_name": 'Guido',
+         "last_name": 'Van Rossum',
+         "birth": date(1906,1,31),
+         "email": "test@test.com"},
+        {"first_name": "Sergey",
+           "last_name": "Limanchuk",
+           "birth": date(1976,1,2),
+           "email": "sergelemon@gmail.com"})
 
 if save_to_db(test):
     print('Data was successfully added.')
