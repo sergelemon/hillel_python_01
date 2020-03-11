@@ -1,14 +1,14 @@
 def count_work_hours(in_time, out_time, rate):
     """
-    Функция считает оплату за отработанные часы.
-    :in_time int: время начала, в целых часах, например, 8
-    :out_time int: время окончания, в целых часах, например, 19
-    :rate float: стоимость полного часа
-    Возвращает строку вида "57.63 for 9 hours"
-    Если количество часов < 8, оплата не считается и равна 0.
-    Если количество часов > 8, оплата за каждый сверхурочный час считается по
-    полуторному рейту.
-    """
+  Функция считает оплату за отработанные часы.
+  :in_time int: время начала, в целых часах, например, 8
+  :out_time int: время окончания, в целых часах, например, 19
+  :rate float: стоимость полного часа
+  Возвращает строку вида "57.63 for 9 hours"
+  Если количество часов < 8, оплата не считается и равна 0.
+  Если количество часов > 8, оплата за каждый сверхурочный час считается по
+  полуторному рейту.
+  """
     work_time = out_time - in_time
     payment = 0.0
     if work_time == 8:
@@ -20,18 +20,18 @@ def count_work_hours(in_time, out_time, rate):
 
 def plan_trip(destination_list):
     """
-    Функция считает стоимость путешествия.
-    :destination_list list: список кортежей вида (длительность поездки, город),
-    то есть, можно за один вызов посчитать несколько поездок.
-    Возвращает цену для каждой поездки (float) списком.
-    Стоимость путешествия = прямой перелет + обратный перелет + длительность *
-    стоимость отеля.
-    Цены:
-    1. Получение стоимости отеля в заданном городе (за 1 ночь: Odesa - 33,
-    Kyiv - 42, Larnaka - 49, Istanbul - 38);
-    2. Получение стоимости перелета в заданный город или обратно (в 1 сторону:
-    Odesa - 80, Kyiv - 97, Larnaka - 134, Istanbul - 149).
-    """
+  Функция считает стоимость путешествия.
+  :destination_list list: список кортежей вида (длительность поездки, город),
+  то есть, можно за один вызов посчитать несколько поездок.
+  Возвращает цену для каждой поездки (float) списком.
+  Стоимость путешествия = прямой перелет + обратный перелет + длительность *
+  стоимость отеля.
+  Цены:
+  1. Получение стоимости отеля в заданном городе (за 1 ночь: Odesa - 33,
+  Kyiv - 42, Larnaka - 49, Istanbul - 38);
+  2. Получение стоимости перелета в заданный город или обратно (в 1 сторону:
+  Odesa - 80, Kyiv - 97, Larnaka - 134, Istanbul - 149).
+  """
     result = list()
     prices = {"Odesa": {"hotel": 33, "flight": 80}, "Kyiv": {"hotel": 42, "flight": 97}}
     for dest in dest_list:
@@ -44,6 +44,7 @@ def plan_trip(destination_list):
 
 
 from datetime import date
+
 # d = date(1969, 6, 26) - конструктор даты
 # d.year < 2020 - проверка даты
 
@@ -68,7 +69,7 @@ def validate_input(data: tuple):
     # """
 
     result = True
-    error_dict = {'KeyError': [], 'ValueError':[]}
+    error_dict = {'KeyError': [], 'ValueError': []}
 
     for profile in data:
         result *= check_field('first_name', profile, error_dict)
@@ -80,26 +81,26 @@ def validate_input(data: tuple):
 
 
 def check_field(key, profile, error_dict):
-
     result = False
     value = profile.get(key)
 
     if value == None:
         error_dict['KeyError'].append((key, profile))
-        return result
+        return False
 
     while True:
         if key == 'first_name':
             if isinstance(value, str) and len(value) and len(value) < 48:
-                result = True
+              return True
             break
         elif key == 'last_name':
             if isinstance(value, str) and len(value) and len(value) < 64:
-                result = True
+              return True
             break
         elif key == 'birth':
-            if isinstance(value, date) and value <= date.today() and date.replace(value, value.year + 100) >= date.today():
-                result = True
+            if isinstance(value, date) and value <= date.today() and date.replace(value,
+                                                                                  value.year + 100) >= date.today():
+                return True
             break
         elif key == 'email':
             if not isinstance(value, str) or not len(value):
@@ -118,38 +119,37 @@ def check_field(key, profile, error_dict):
                 break
             elif len(set(domain.lower()) - mask) > 0:
                 break
-            result = True
-            break
+            return True
 
-    if not result:
-        error_dict['ValueError'].append((key, profile))
+    error_dict['ValueError'].append((key, profile))
 
-    return result
+    return False
 
 
 def handle_error(error_dict) -> None:
     """
-    Функция принимает словарь ошибок и проблемных словарей и принтит их.
-    Пример:
-    ValueError found in:
-    {"first_name": {"first_name": 42, "second_name": "Van Rossum"}}
-    {"second_name": {"first_name": "Guido", "second_name": 42}}
-    """
+  Функция принимает словарь ошибок и проблемных словарей и принтит их.
+  Пример:
+  ValueError found in:
+  {"first_name": {"first_name": 42, "second_name": "Van Rossum"}}
+  {"second_name": {"first_name": "Guido", "second_name": 42}}
+  """
     for key in error_dict:
-        if len(error_dict[key]):
+        errors = error_dict.get(key, None)
+        if errors:
             print(f'{key} found in:')
-            for x in error_dict[key]:
+            for x in errors:
                 print(x)
     pass
 
 
 def save_to_db(data: tuple) -> bool:
     """
-    Функция принимает кортеж словарей с данными, валидирует каждую запись с
-    помощью вспомогательной функции validate_input, и если данные валидны,
-    добавляет их в database.
-    Возвращает bool по результатам успешного/неуспешного выполнения.
-    """
+  Функция принимает кортеж словарей с данными, валидирует каждую запись с
+  помощью вспомогательной функции validate_input, и если данные валидны,
+  добавляет их в database.
+  Возвращает bool по результатам успешного/неуспешного выполнения.
+  """
     result, error_dict = validate_input(data)
 
     if not result:
@@ -170,12 +170,12 @@ def save_to_db(data: tuple) -> bool:
 
 test = ({"first_name": 'Guido',
          "last_name": 'Van Rossum',
-         "birth": date(1956,1,31),
+         "birth": date(1956, 1, 31),
          "email": "test@test.com"},
         {"first_name": "Sergey",
-           "last_name": "Limanchuk",
-           "birth": date(1976,1,2),
-           "email": "sergelemon@gmail.com"})
+         "last_name": "Limanchuk",
+         "birth": date(1976, 1, 2),
+         "email": "sergelemon@gmail.com"})
 
 if save_to_db(test):
     print('Data was successfully added.')
