@@ -6,22 +6,18 @@ def do_cache(maxsize):
         cache = dict() # этот дикт будет доступен при следующих вызовах
         def wrapper(*args):
 
-            if len(cache) > maxsize:
+            if maxsize < 1:
+                return func(*args)
+
+            if len(cache) >= maxsize:
                 # Если количество закешированных элементов превышает maxsize,
                 # нужно удалить самый первый закешированный элемент.
                 cache.pop(list(cache).pop(0))
 
-            if args in cache:
-                # Если элемент уже есть в кеше, нужно вернуть его, не вызывая
-                # декорируемой функции
-                result = cache.get(args)
-            else:
-                # Если элемента нет в кеше, нужно вызвать декорируемую функцию,
-                # сохранить ее результат в кеш и вернуть ее результат
-                result = func(*args)
-                cache[args] = result
+            if args not in cache:
+                cache[args] = func(*args)
 
-            return result
+            return cache.get(args)
         return wrapper
     return decorator
 
@@ -39,8 +35,15 @@ def test(v, i):
 
 def div100(func):
     def wrapper(*args):
-        rest = 100 % func(*args)
-        return f'Bad news guys, we got {rest}' if rest else 'We are OK!'
+        if 0 <= args[0] <= 100:
+            rest = 100 % func(*args)
+            if rest:
+                print(f'Bad news guys, we got {rest}')
+            else:
+                print('We are OK!')
+        else:
+            print(f'Bad news guys, the value should be in the range 0..100')
+        return None
     return wrapper
 
 @div100
@@ -62,16 +65,12 @@ def count_args(func):
         if cache_count.get(args) == None:
             cache_count[args] = 0
         cache_count[args] += 1
-        print(cache_count)
+        print(f'{args}: {cache_count[args]}')
 
-        if args in cache:
-            result = cache.get(args)
-        else:
-            result = func(*args)
-            cache[args] = result
+        if args not in cache:
+            cache[args] = func(*args)
 
-        return result
-
+        return cache.get(args)
     return wrapper
 
 

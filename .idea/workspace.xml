@@ -108,7 +108,7 @@
       <workItem from="1583772678542" duration="6096000" />
       <workItem from="1583970027892" duration="4732000" />
       <workItem from="1584024345223" duration="234000" />
-      <workItem from="1584045907955" duration="2073000" />
+      <workItem from="1584045907955" duration="5033000" />
     </task>
     <servers />
   </component>
@@ -136,14 +136,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/03_decorators/tasks_03.py</url>
-          <line>54</line>
+          <line>57</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/03_decorators/tasks_03.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/03_decorators/tasks_03.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/hillel_python_01$tasks_03.coverage" NAME="tasks_03 Coverage Results" MODIFIED="1584050206334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/03_decorators" />
+    <SUITE FILE_PATH="coverage/hillel_python_01$tasks_03.coverage" NAME="tasks_03 Coverage Results" MODIFIED="1584058977227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/03_decorators" />
     <SUITE FILE_PATH="coverage/hillel_python_01$tasks_06_03.coverage" NAME="tasks_06_03 Coverage Results" MODIFIED="1583778737488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice" />
   </component>
 </project>
