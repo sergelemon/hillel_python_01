@@ -173,25 +173,23 @@ class Time:
     #     pass
 
     def change(self, h=0, m=0, s=0):
+
         self._seconds += s
-        while self._seconds < 0:
-            self._seconds += 60
-            self._minutes -= 1
-        while self._seconds > 59:
-            self._seconds -= 60
-            self._minutes += 1
+        if not (0 <= self._seconds < 60):
+            delta = self._seconds // 60
+            self._seconds -= delta * 60
+            self._minutes += delta
+
         self._minutes += m
-        while self._minutes < 0:
-            self._minutes += 60
-            self._hours -= 1
-        while self._minutes > 59:
-            self._minutes -= 60
-            self._hours += 1
+        if not (0 <= self._minutes < 60):
+            delta = self._minutes // 60
+            self._minutes -= delta * 60
+            self._hours += delta
+
         self._hours += h
-        while self._hours < 0:
-            self._hours += 24
-        while self._hours > 23:
-            self._hours -= 24
+        if not (0 <= self._hours < 24):
+            delta = self._hours // 24
+            self._hours -= delta * 24
 
 
 '''Создайте класс Student, который содержит атрибуты: фамилия и инициалы, номер
