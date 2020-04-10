@@ -215,3 +215,4 @@ def sort_by_avg_mark(s_list):
 
 def get_best_by_mark(s_list):
     return [x for x in s_list if x.avg_mark > 3]
+
