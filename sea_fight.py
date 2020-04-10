@@ -132,31 +132,27 @@ class Game:
 
     def play(self):
 
-        shot = ''
         while True:
+            shot = ''
             for player in self.players:
 
                 my_table, enemy_table = self._read_tables(player)
 
                 self._print_table(my_table, True)
                 self._print_table(enemy_table, False)
-
                 self._print_shot_result(shot, False)
                 print(f'{player} - make your move.')
 
                 row, column = self._input_row_column()
                 shot = self._shot(enemy_table, row, column)
-
                 self._write_enemy_table(player, enemy_table)
 
                 self._print_table(my_table, True)
                 self._print_table(enemy_table, False)
-
                 self._print_shot_result(shot)
 
                 if self._you_are_winner(enemy_table):
                     return True
-
                 while True:
                     next_move = input(f'{player}, continue or finish game, y/n:')
                     if next_move == 'n':
