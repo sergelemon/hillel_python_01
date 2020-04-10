@@ -142,8 +142,8 @@ class Game:
 
     def play(self):
 
+        shot = ''
         while True:
-            shot = ''
             for player in self.players:
 
                 my_table, enemy_table = self._read_tables(player)
