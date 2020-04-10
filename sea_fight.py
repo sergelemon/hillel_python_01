@@ -76,6 +76,16 @@ class Game:
             if shot == '*':
                 print('Your enemy missed!')
 
+    @staticmethod
+    def _change_player(player):
+        # Смена игрока или выход из игры
+        while True:
+            next_move = input(f'{player}, continue or finish game, y/n:')
+            if next_move == 'y':
+                return True
+            elif next_move == 'n':
+                return False
+
     def _generate_ships(self, table, number):
         # Создаем однотрубные корабли в количестве (number) штук
         for ship_number in range(number):
@@ -153,12 +163,8 @@ class Game:
 
                 if self._you_are_winner(enemy_table):
                     return True
-                while True:
-                    next_move = input(f'{player}, continue or finish game, y/n:')
-                    if next_move == 'n':
-                        return True
-                    elif next_move == 'y':
-                        break
+                if not self._change_player(player):
+                    return True
 
 game = Game()
 game.play()
