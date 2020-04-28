@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ddf733d-f4d7-42cf-b04e-5d0a88d0a074" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/14042020.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14042020_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/01_base_coro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/02_chain_coro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/03_base_async.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/04_await_async.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/05_tasks_async.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/06_await.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/07_await_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/08_future.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/09_gather.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/10_aiohttp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/task_01.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/task_02.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_coro/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21042020.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_sea_fight.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sea_fight.py" beforeDir="false" afterPath="$PROJECT_DIR$/sea_fight.py" afterDir="false" />
-    </list>
+    <list default="true" id="7ddf733d-f4d7-42cf-b04e-5d0a88d0a074" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
