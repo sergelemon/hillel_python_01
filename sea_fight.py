@@ -1,4 +1,5 @@
 from random import randrange
+from unittest import TestCase as case
 
 class Game:
 
@@ -166,5 +167,3 @@ class Game:
                 if not self._change_player(player):
                     return True
 
-game = Game()
-game.play()
