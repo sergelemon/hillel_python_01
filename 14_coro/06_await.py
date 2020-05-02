@@ -4,8 +4,7 @@ async def nested():
     return 42
 
 async def main():
-    nested()
-
+    # nested()
     print(await nested())
 
 asyncio.run(main())

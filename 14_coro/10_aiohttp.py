@@ -10,13 +10,16 @@ urls = [
 ]
 
 async def areq(u):
-    print(f'a req {u}')
-    await asyncio.sleep(randint(1,2))
+    # print(f'a req {u}')
+    # await asyncio.sleep(randint(1,2))
     async with aiohttp.request('GET', u) as resp:
-        print(f'a res {u} - {resp.status}')
+        pass
+        # print(f'a res {u} - {resp.status}')
+    return True
 
 async def main():
     await asyncio.gather(*(areq(u) for u in urls))
+    return asyncio.streams
 
-
-asyncio.run(main())
+st = asyncio.run(main())
+print(st)

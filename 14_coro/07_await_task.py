@@ -7,7 +7,7 @@ async def nested():
 async def main():
     task = asyncio.create_task(nested())
     await task
-    print(task)
+    # print(task)
     print(task.result())
 
 asyncio.run(main())
