@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ddf733d-f4d7-42cf-b04e-5d0a88d0a074" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/28042020.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/28042020_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pizzeria.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pow.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ship.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/01_base_coro.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/01_base_coro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/02_chain_coro.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/02_chain_coro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/04_await_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/04_await_async.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/06_await.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/06_await.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/07_await_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/07_await_task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/10_aiohttp.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/10_aiohttp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14_coro/task_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_coro/task_01.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,49 +42,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.task_01">
-    <configuration name="07_await_task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SergeLemon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/14_coro" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/14_coro/07_await_task.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="08_future" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SergeLemon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/14_coro" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/14_coro/08_future.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.calc">
     <configuration name="09_gather" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SergeLemon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,6 +85,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="calc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SergeLemon" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pizzeria" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SergeLemon" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pizzeria.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="task_01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SergeLemon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.calc" />
+        <item itemvalue="Python.pizzeria" />
         <item itemvalue="Python.task_01" />
         <item itemvalue="Python.10_aiohttp" />
         <item itemvalue="Python.09_gather" />
-        <item itemvalue="Python.08_future" />
-        <item itemvalue="Python.07_await_task" />
       </list>
     </recent_temporary>
   </component>
@@ -223,54 +210,54 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="785" y="432" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587419116783" />
-    <state x="1095" y="292" key="#xdebugger.evaluate" timestamp="1588377996387">
+    <state x="1095" y="292" key="#xdebugger.evaluate" timestamp="1588553529174">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1095" y="292" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1588377996387" />
+    <state x="1095" y="292" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1588553529174" />
     <state x="614" y="118" key="CommitChangelistDialog2" timestamp="1586872905561">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="614" y="118" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586872905561" />
-    <state width="1899" height="289" key="GridCell.Tab.0.bottom" timestamp="1588380774865">
+    <state width="1899" height="351" key="GridCell.Tab.0.bottom" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774865" />
-    <state width="1899" height="289" key="GridCell.Tab.0.center" timestamp="1588380774865">
+    <state width="1899" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.0.center" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774865" />
-    <state width="1899" height="289" key="GridCell.Tab.0.left" timestamp="1588380774865">
+    <state width="1899" height="351" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.0.left" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774865" />
-    <state width="1899" height="289" key="GridCell.Tab.0.right" timestamp="1588380774865">
+    <state width="1899" height="351" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.0.right" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774865" />
-    <state width="1899" height="351" key="GridCell.Tab.1.bottom" timestamp="1588380774861">
+    <state width="1899" height="351" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.1.bottom" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774861" />
-    <state width="1899" height="351" key="GridCell.Tab.1.center" timestamp="1588380774861">
+    <state width="1899" height="351" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.1.center" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774861" />
-    <state width="1899" height="351" key="GridCell.Tab.1.left" timestamp="1588380774861">
+    <state width="1899" height="351" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.1.left" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774861" />
-    <state width="1899" height="351" key="GridCell.Tab.1.right" timestamp="1588380774861">
+    <state width="1899" height="351" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
+    <state width="1899" height="351" key="GridCell.Tab.1.right" timestamp="1588554228728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588380774861" />
+    <state width="1899" height="351" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588554228728" />
     <state x="461" y="167" key="SettingsEditor" timestamp="1584575942074">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1584575942074" />
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588201421285">
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588466138643">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1588201421285" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1588466138643" />
     <state x="616" y="178" width="670" height="676" key="search.everywhere.popup" timestamp="1587421272568">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -378,6 +365,16 @@
           <url>file://$PROJECT_DIR$/14_coro/10_aiohttp.py</url>
           <line>24</line>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/calc.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/calc.py</url>
+          <line>202</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
